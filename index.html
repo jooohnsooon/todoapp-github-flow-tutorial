@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>TODOリスト</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    input, button {
+      padding: 8px;
+      font-size: 16px;
+    }
+    ul {
+      margin-top: 20px;
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>TODOリスト</h1>
+  <input type="text" id="todoInput" placeholder="やることを入力">
+  <button onclick="addTodo()">追加</button>
+
+  <ul id="todoList"></ul>
+
+  <script>
+    function addTodo() {
+      const input = document.getElementById('todoInput');
+      const text = input.value.trim();
+      if (text === '') return;
+
+      const li = document.createElement('li');
+      li.textContent = text;
+      document.getElementById('todoList').appendChild(li);
+      input.value = '';
+    }
+  </script>
+</body>
+</html>
